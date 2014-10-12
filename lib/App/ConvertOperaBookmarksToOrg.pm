@@ -169,6 +169,7 @@ sub convert_org_to_opera_bookmarks {
         }
         push @ct, "\n";
     }
+    push @ct, "-\n\n" for 1..$prev_level-1;
     [200, "OK", join("", @ct)];
 }
 
