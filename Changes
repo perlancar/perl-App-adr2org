@@ -2,9 +2,7 @@ Revision history for App-ConvertOperaBookmarksToOrg
 
 0.02    2014-10-12 (PERLANCAR)
 
-	- [Bugfix] closing levels.
-
-	- [Bugfix] Forgot to close levels.
+	- [Bugfix] Fix level closing in .adr generation.
 
 	- Provide shorter aliases for scripts: adr2org & org2adr.
 
