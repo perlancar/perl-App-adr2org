@@ -153,13 +153,15 @@ sub convert_org_to_opera_bookmarks {
             warn "Unknown section type '$type', skipped";
             next;
         }
-        $level = length($level);
-        if (defined($prev_level) && $level < $prev_level) {
-            for ($level .. $prev_level-1) {
-                push @ct, "-\n\n";
+        if ($type eq 'FOLDER') {
+            $level = length($level);
+            if (defined($prev_level) && $level <= $prev_level) {
+                for ($level .. $prev_level) {
+                    push @ct, "-\n\n";
+                }
             }
+            $prev_level = $level;
         }
-        $prev_level = $level;
         push @ct, "#$type\n";
         push @ct, "\tID=", ++$id, "\n";
         push @ct, "\tNAME=$sname\n";
@@ -169,7 +171,7 @@ sub convert_org_to_opera_bookmarks {
         }
         push @ct, "\n";
     }
-    push @ct, "-\n\n" for 1..$prev_level-1;
+    push @ct, "-\n\n" for 1..$prev_level;
     [200, "OK", join("", @ct)];
 }
 
