@@ -9,6 +9,11 @@ use warnings;
 
 use Sort::ByExample;
 
+require Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(convert_opera_bookmarks_to_org
+                    convert_org_to_opera_bookmarks);
+
 my $sorter = Sort::ByExample->sorter([
     "ID",
     "NAME",
@@ -171,7 +176,9 @@ sub convert_org_to_opera_bookmarks {
         }
         push @ct, "\n";
     }
-    push @ct, "-\n\n" for 1..$prev_level;
+    if (defined $prev_level) {
+        push @ct, "-\n\n" for 1..$prev_level;
+    }
     [200, "OK", join("", @ct)];
 }
 
