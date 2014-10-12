@@ -183,4 +183,9 @@ This distribution provides the following utilities:
  convert-opera-bookmarks-to-org
  convert-org-to-opera-bookmarks
 
+Shorter-named scripts are also provided as aliases, respectively:
+
+ adr2org
+ org2adr
+
 =cut
