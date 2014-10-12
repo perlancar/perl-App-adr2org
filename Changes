@@ -1,5 +1,10 @@
 Revision history for App-ConvertOperaBookmarksToOrg
 
+0.03    2014-10-12 (PERLANCAR)
+
+	- Add option: exclude_trash.
+
+
 0.02    2014-10-12 (PERLANCAR)
 
 	- [Bugfix] Fix level closing in .adr generation.
