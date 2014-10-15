@@ -1,4 +1,4 @@
-package App::ConvertOperaBookmarksToOrg;
+package App::adr2org;
 
 # DATE
 # VERSION
@@ -11,8 +11,7 @@ use Sort::ByExample;
 
 require Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT_OK = qw(convert_opera_bookmarks_to_org
-                    convert_org_to_opera_bookmarks);
+our @EXPORT_OK = qw(adr2org org2adr);
 
 my $sorter = Sort::ByExample->sorter([
     "ID",
@@ -34,7 +33,7 @@ my $sorter = Sort::ByExample->sorter([
 
 our %SPEC;
 
-$SPEC{convert_opera_bookmarks_to_org} = {
+$SPEC{adr2org} = {
     v => 1.1,
     summary => 'Convert Opera bookmarks (bookmarks.adr) to Org document',
     description => <<'_',
@@ -70,7 +69,7 @@ _
         },
     },
 };
-sub convert_opera_bookmarks_to_org {
+sub adr2org {
     my %args = @_;
 
     my $exclude_trash = $args{exclude_trash};
@@ -124,7 +123,7 @@ sub convert_opera_bookmarks_to_org {
     [200, "OK", join("", @ct)];
 }
 
-$SPEC{convert_org_to_opera_bookmarks} = {
+$SPEC{org2adr} = {
     v => 1.1,
     summary => 'Convert back Org to Opera bookmarks (bookmarks.adr)',
     description => <<'_',
@@ -144,7 +143,7 @@ _
         },
     },
 };
-sub convert_org_to_opera_bookmarks {
+sub org2adr {
     my %args = @_;
 
     my $cur_level;
@@ -197,16 +196,11 @@ sub convert_org_to_opera_bookmarks {
 
 
 1;
-# ABSTRACT: Convert Opera bookmarks to Org
+# ABSTRACT: Convert Opera bookmarks to Org (and vice versa)
 
 =head1 DESCRIPTION
 
 This distribution provides the following utilities:
-
- convert-opera-bookmarks-to-org
- convert-org-to-opera-bookmarks
-
-Shorter-named scripts are also provided as aliases, respectively:
 
  adr2org
  org2adr
