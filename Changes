@@ -2,10 +2,11 @@ Revision history for App-adr2org
 
 0.04    2014-10-15 (PERLANCAR)
 
-	- No functional changes.
-
         - Rename dist from App-ConvertOperaBookmarksToOrg to App-adr2org (former
           name too cumbersomely long).
+
+        - Remove the long-named scripts: convert-opera-bookmarks-to-org and
+          convert-org-to-opera-bookmarks.
 
 
 0.03    2014-10-12 (PERLANCAR)
