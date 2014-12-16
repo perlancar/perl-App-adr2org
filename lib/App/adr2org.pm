@@ -33,6 +33,11 @@ my $sorter = Sort::ByExample->sorter([
 
 our %SPEC;
 
+$SPEC{':package'} = {
+    v => 1.1,
+    summary => 'Convert Opera bookmarks to Org (and vice versa)',
+};
+
 $SPEC{adr2org} = {
     v => 1.1,
     summary => 'Convert Opera bookmarks (bookmarks.adr) to Org document',
@@ -196,7 +201,7 @@ sub org2adr {
 
 
 1;
-# ABSTRACT: Convert Opera bookmarks to Org (and vice versa)
+# ABSTRACT:
 
 =head1 DESCRIPTION
 
